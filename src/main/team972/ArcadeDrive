@@ -1,0 +1,87 @@
+package org.usfirst.frc.team972.robot;
+import edu.wpi.first.wpilibj.Joystick;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+public class ArcadeDrive {
+	 Joystick stick;
+	 WPI_TalonSRX leftm1;
+	 WPI_TalonSRX rightm1;
+	 WPI_TalonSRX leftm2;
+	 WPI_TalonSRX rightm2;
+	 
+	 double x;
+	 double y;
+	 double turnAngle;
+	 boolean left = false;
+	 boolean upper = false;
+	 double lMag;
+	 double rMag;
+	 
+	public ArcadeDrive(Joystick stick, WPI_TalonSRX leftm1, WPI_TalonSRX rightm1, WPI_TalonSRX leftm2, WPI_TalonSRX rightm2) {
+		this.stick=stick;
+		this.rightm1=rightm1;
+		this.leftm2=leftm2;
+		this.leftm1=leftm1;
+		this.rightm2=rightm2;
+	}
+	
+	public void loop(Joystick stick) {
+		x = stick.getRawAxis(0);
+		y = stick.getRawAxis(1);
+		
+		if (x<0) {
+			left=true;
+		}
+		else {
+			left=false;
+		}
+		if (y>0) {
+			upper=true;
+		}
+		else {
+			upper=false;
+		}
+		turnAngle = Math.atan(Math.abs(y/x));
+		
+		if (!upper) {
+			if (!left) {
+				leftm2.set(0.3);
+				leftm1.set(0.3);
+				rightm1.set(0.3);
+				rightm2.set(0.3);
+			} 
+			else {
+				leftm2.set(-0.3);
+				leftm1.set(-0.3);
+				rightm1.set(-0.3);
+				rightm2.set(-0.3);
+			}	
+		} 
+		else {
+			if (!left) {
+				
+			} 
+			else {
+				
+			}	
+		}
+		
+	}
+	
+	public int[] math() {
+		//takes joystick measures, returns power amount for each side
+		double x = stick.getRawAxis(0);
+		double y = stick.getRawAxis(1);
+		int[] output = new int[2];
+		
+		
+	}
+	public void drive() {
+		double power = stick.getRawAxis(2);
+		double leftpower = power;
+		double rightpower = power;
+		
+	}
+	
+
+}
