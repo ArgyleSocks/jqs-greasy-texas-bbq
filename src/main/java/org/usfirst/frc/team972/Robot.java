@@ -1,9 +1,9 @@
-package org.usfirst.frc.team972;
+package org.usfirst.frc.team972.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Joystick;; 
+import edu.wpi.first.wpilibj.Joystick; 
 
 class Robot extends IterativeRobot {
 	WPI_TalonSRX leftM1 = new WPI_TalonSRX(1);
@@ -59,7 +59,8 @@ class Robot extends IterativeRobot {
 		
 		rolleygrabber.set(ControlMode.PercentOutput, toggle*power);
 		
-		//254 arcade drive
+		//arcade drive
+		
 		
 	}
 
